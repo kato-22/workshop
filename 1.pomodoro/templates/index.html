@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポモドーロタイマー</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="timer-card" aria-label="ポモドーロタイマー">
+            <header class="window-header">
+                <h1 class="app-title">ポモドーロタイマー</h1>
+                <div class="window-actions" aria-hidden="true">
+                    <span class="window-action">-</span>
+                    <span class="window-action">□</span>
+                    <span class="window-action">×</span>
+                </div>
+            </header>
+
+            <section class="timer-panel" aria-labelledby="timer-mode-label">
+                <p id="timer-mode-label" class="mode-label">作業中</p>
+                <div id="timer-ring" class="timer-ring" aria-hidden="true">
+                    <div class="timer-ring__inner">
+                        <p id="timer-value" class="timer-value">25:00</p>
+                    </div>
+                </div>
+                <div class="timer-actions">
+                    <button id="start-button" class="button button-primary" type="button">開始</button>
+                    <button id="reset-button" class="button button-secondary" type="button">リセット</button>
+                </div>
+            </section>
+
+            <section class="stats-card" aria-labelledby="stats-title">
+                <h2 id="stats-title" class="stats-title">今日の進捗</h2>
+                <div class="stats-grid">
+                    <article class="stat-item">
+                        <p id="completed-sessions-value" class="stat-value">0</p>
+                        <p class="stat-label">完了</p>
+                    </article>
+                    <article class="stat-item">
+                        <p id="focus-minutes-value" class="stat-value">0分</p>
+                        <p class="stat-label">集中時間</p>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script type="module" src="{{ url_for('static', filename='js/state.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/timer.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/ui.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/api.js') }}"></script>
+</body>
+</html>
